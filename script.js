@@ -1,7 +1,7 @@
 const textEl = document.getElementById("text");
 const authorEl = document.getElementById("author");
 
-const text = "Komme mit mir zum Ende der Welt.";
+const text = "Komm mit mir bis ans Ende der Welt";
 const author = "– Kim, aus der Zukunft.";
 
 let index = 0;
