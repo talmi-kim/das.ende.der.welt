@@ -1,9 +1,8 @@
 const textEl = document.getElementById("text");
 const authorEl = document.getElementById("author");
 
-const text = "Komm mit mir bis ans Ende der Welt";
-const author = "– Kim, aus der <span class='glitch' data-text='Zukunft'>Zukunft</span>.";
-
+const text = "Das Ende der Welt.";
+const authorHTML = "– Kim, aus der <span class='glitch' data-text='Zukunft'>Zukunft</span>.";
 
 let index = 0;
 
@@ -18,16 +17,10 @@ function typeText() {
     }
     setTimeout(typeText, 100);
   } else {
-    setTimeout(typeAuthor, 600);
-  }
-}
-
-let authorIndex = 0;
-function typeAuthor() {
-  if (authorIndex < author.length) {
-    authorEl.innerHTML += author[authorIndex];
-    authorIndex++;
-    setTimeout(typeAuthor, 80);
+    // Autor **als echtes HTML** einsetzen
+    setTimeout(() => {
+      authorEl.innerHTML = authorHTML;
+    }, 600);
   }
 }
 
