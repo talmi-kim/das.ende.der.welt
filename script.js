@@ -2,7 +2,8 @@ const textEl = document.getElementById("text");
 const authorEl = document.getElementById("author");
 
 const text = "Komm mit mir bis ans Ende der Welt";
-const author = "– Kim, aus der Zukunft.";
+const author = "– Kim, aus der <span class='glitch' data-text='Zukunft'>Zukunft</span>.";
+
 
 let index = 0;
 
