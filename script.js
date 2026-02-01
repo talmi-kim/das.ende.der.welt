@@ -2,26 +2,38 @@ const textEl = document.getElementById("text");
 const authorEl = document.getElementById("author");
 
 const text = "Komm mit mir bis ans Ende der Welt";
-const authorHTML = "– Kim, aus der <span class='glitch' data-text='Zukunft'>Zukunft</span>.";
+const authorText = "– Kim, aus der Zukunft.";
 
-let index = 0;
+let i = 0;
 
-function typeText() {
-  if (index < text.length) {
-    if (text.slice(index, index + 4) === "Ende") {
+function typeMainText() {
+  if (i < text.length) {
+    if (text.slice(i, i + 4) === "Ende") {
       textEl.innerHTML += `<span class="red">Ende</span>`;
-      index += 4;
+      i += 4;
     } else {
-      textEl.innerHTML += text[index];
-      index++;
+      textEl.innerHTML += text[i];
+      i++;
     }
-    setTimeout(typeText, 100);
+    setTimeout(typeMainText, 100);
   } else {
-    // Autor **als echtes HTML** einsetzen
-    setTimeout(() => {
-      authorEl.innerHTML = authorHTML;
-    }, 600);
+    setTimeout(typeAuthorText, 600);
   }
 }
 
-typeText();
+let j = 0;
+function typeAuthorText() {
+  if (j < authorText.length) {
+    authorEl.textContent += authorText[j];
+    j++;
+    setTimeout(typeAuthorText, 70);
+  } else {
+    // NACH dem Tippen → "Zukunft" ersetzen
+    authorEl.innerHTML = authorEl.innerHTML.replace(
+      "Zukunft",
+      "<span class='glitch' data-text='Zukunft'>Zukunft</span>"
+    );
+  }
+}
+
+typeMainText();
