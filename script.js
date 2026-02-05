@@ -28,7 +28,7 @@ function typeAuthorText() {
     j++;
     setTimeout(typeAuthorText, 70);
   } else {
-    // NACH dem Tippen → "Zukunft" ersetzen
+    
     authorEl.innerHTML = authorEl.innerHTML.replace(
       "Zukunft",
       "<span class='glitch' data-text='Zukunft'>Zukunft</span>"
