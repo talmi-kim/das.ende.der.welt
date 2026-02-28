@@ -1,11 +1,11 @@
-/* Wichtig: Scrollen erlauben */
+
 body {
   height: auto;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/* GIF Bereich */
+
 .gif-container {
   width: 100%;
   max-width: 430px; /* Handybreite */
@@ -23,7 +23,7 @@ body {
   border: 0;
 }
 
-/* Credit */
+
 .credit {
   font-size: 12px;
   opacity: 0.6;
