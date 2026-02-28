@@ -11,10 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function typeMainText() {
     if (i < text.length) {
       if (text.slice(i, i + 4) === "Ende") {
-        textEl.innerHTML += `<span class="red">Ende</span>`;
+        const span = document.createElement("span");
+        span.className = "red";
+        span.textContent = "Ende";
+        textEl.appendChild(span);
         i += 4;
       } else {
-        textEl.innerHTML += text[i];
+        textEl.append(text[i]);
         i++;
       }
       setTimeout(typeMainText, 100);
@@ -27,14 +30,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function typeAuthorText() {
     if (j < authorText.length) {
-      authorEl.textContent += authorText[j];
+      authorEl.append(authorText[j]);
       j++;
       setTimeout(typeAuthorText, 70);
     } else {
-      authorEl.innerHTML = authorEl.innerHTML.replace(
+      const content = authorEl.textContent;
+      const replaced = content.replace(
         "Zukunft",
         "<span class='glitch'>Zukunft</span>"
       );
+      authorEl.innerHTML = replaced;
     }
   }
 
